@@ -691,7 +691,7 @@ var FilterPipe = /** @class */ (function () {
             return users.filter(function (user) { return (user.name.first.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
                 user.name.last.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
                 user.email.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
-                user.dob.age.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
+                user.dob.age.toString().toLowerCase().indexOf(query.toLowerCase()) > -1 ||
                 user.phone.toLowerCase().indexOf(query.toLowerCase()) > -1); });
         }
         return users;

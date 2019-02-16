@@ -1,3 +1,7 @@
-<div *ngFor="let userItem of userList">
-    <app-user-item [userItem]="userItem"></app-user-item>
+<div class="user-list">
+    <div *ngFor="let userItem of (userList | Filter: query)">
+        <div [className]="(userSelected === userItem) ? 'selected' : ''">
+            <app-user-item [userItem]="userItem"></app-user-item>
+        </div>
+    </div>
 </div>

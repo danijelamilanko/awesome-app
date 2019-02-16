@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { UserProfileComponent } from './user-profile.component';
 
@@ -8,6 +8,7 @@ import { UserProfileComponent } from './user-profile.component';
     UserProfileComponent
   ],
   imports: [
+    CommonModule
   ],
   providers: [],
   exports: [UserProfileComponent]

@@ -1,1 +1,4 @@
-<div>{{userItem.name}}</div>
+<div class="user-item" (click)="userSelected()">
+    <img src={{userItem.picture.thumbnail}} alt=""/>
+    <span>{{userItem.name | FullName}}</span>
+</div>

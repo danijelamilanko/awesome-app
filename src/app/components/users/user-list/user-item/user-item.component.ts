@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../../../../models/user/user';
+import { ApplicationService } from '../../../../services/application.service';
 
 @Component({
   selector: 'app-user-item',
@@ -9,7 +10,11 @@ import { User } from '../../../../models/user/user';
 export class UserItemComponent implements OnInit {
   @Input() userItem: User;
 
-  constructor() { }
+  constructor(public applicationService: ApplicationService) { }
+
+  userSelected() {
+    this.applicationService.selectUser(this.userItem);
+  }
 
   ngOnInit() {
   }

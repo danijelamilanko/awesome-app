@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { UsersModule } from './components/users/users.module';
 import { BackendService } from './services/backend.service';
+import { ApplicationService } from './services/application.service';
+import { SearchService } from './services/search.service';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { BackendService } from './services/backend.service';
     UsersModule
   ],
   providers: [
-    BackendService
+    BackendService,
+    ApplicationService,
+    SearchService
   ],
   bootstrap: [AppComponent]
 })

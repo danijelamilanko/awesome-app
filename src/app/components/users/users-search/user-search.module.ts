@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { UserListModule } from '../user-list/user-list.module';
 import { UserSearchComponent } from './user-search.component';
-import { ComboModule } from '../../form-elements/combo/combo.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -10,9 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
     UserSearchComponent
   ],
   imports: [
+    CommonModule,
+    FormsModule,
     HttpClientModule,
-    UserListModule,
-    ComboModule
+    UserListModule
   ],
   providers: [],
   exports: [UserSearchComponent]

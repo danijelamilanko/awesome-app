@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Group } from '../../../models/user/group';
-import { BackendService } from '../../../services/backend.service';
+import { Subject } from 'rxjs/Subject';
+import { SearchService } from '../../../services/search.service';
 
 @Component({
   selector: 'app-user-search',
@@ -8,15 +8,16 @@ import { BackendService } from '../../../services/backend.service';
   styleUrls: ['./user-search.component.scss']
 })
 export class UserSearchComponent implements OnInit {
-  public userGroups: Group[] = [{name: 'Student'}];
+  public searchTerm$ = new Subject<string>();
+  public searchText = '';
 
-  constructor(private backendService: BackendService) { }
-
-  ngOnInit() {
-    this.backendService.getUserGroups().subscribe((response: any) => {
-      console.log('response', response.results);
-      // this.userGroups =
-    });
+  constructor(private searchService: SearchService) {
+    this.searchService.search(this.searchTerm$)
+      .subscribe(results => {
+        this.searchService.triggerSearch(results);
+      });
   }
 
+  ngOnInit() {
+  }
 }

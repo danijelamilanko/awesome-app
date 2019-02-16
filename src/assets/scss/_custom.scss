@@ -1,7 +1,12 @@
 .form-control {
     height: 30px;
     font-size: 12px;
-    box-shadow: none;
-    border: 1px solid $border-form-control;
-    background: $background-form-control;
+    border: 1px solid $grey;
+    background: $light-light-gray;
+    margin: 5px;
+    padding: 0 10px;
+}
+
+input {
+    outline: none;
 }

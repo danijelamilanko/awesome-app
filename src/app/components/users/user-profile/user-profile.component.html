@@ -1,3 +1,9 @@
-<p>
-  user-profile works!
-</p>
+<div class="user-profile" *ngIf="userSelected">
+    <img src="{{userSelected.picture.large}}" alt="">
+    <div>
+        <span class="title">Email Address</span>
+        <span>{{userSelected.email}}</span>
+        <span class="title">Phone Number</span>
+        <span>{{userSelected.phone}}</span>
+    </div>
+</div>

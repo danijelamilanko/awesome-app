@@ -1,3 +1,9 @@
+import { Name } from './name';
+import { Picture } from './picture';
+
 export class User {
-  name: string;
+  name: Name;
+  picture: Picture;
+  phone: string;
+  email: string;
 }

@@ -688,10 +688,11 @@ var FilterPipe = /** @class */ (function () {
     }
     FilterPipe.prototype.transform = function (users, query) {
         if (query) {
-            return users.filter(function (user) { return (user.name.first.indexOf(query) > -1 ||
-                user.name.last.indexOf(query) > -1 ||
-                user.email.indexOf(query) > -1 ||
-                user.phone.indexOf(query) > -1); });
+            return users.filter(function (user) { return (user.name.first.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
+                user.name.last.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
+                user.email.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
+                user.dob.age.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
+                user.phone.toLowerCase().indexOf(query.toLowerCase()) > -1); });
         }
         return users;
     };

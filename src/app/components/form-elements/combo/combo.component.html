@@ -1,0 +1,6 @@
+<div class="app-combo">
+    <select class="form-control select" data-style="btn-success">
+        <option *ngFor="let option of options"
+                (keydown)="onKeydown($event, option)">{{option.name}}</option>
+    </select>
+</div>

@@ -1,6 +1,13 @@
 <div class="user-profile" *ngIf="userSelected">
-    <img src="{{userSelected.picture.large}}" alt="">
-    <div>
+    <div class="immages">
+        <div class="medium-wrapper">
+            <img class="medium" src="{{userSelected.picture.medium}}" alt="">
+            <span>{{userSelected.name | FullName}}</span>
+            <span>{{userSelected.dob.age}}</span>
+        </div>
+        <img class="large" src="{{userSelected.picture.large}}" alt="">
+    </div>
+    <div class="info">
         <span class="title">Email Address</span>
         <span>{{userSelected.email}}</span>
         <span class="title">Phone Number</span>

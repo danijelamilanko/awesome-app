@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { UserItemComponent } from './user-item.component';
 import { CommonModule } from '@angular/common';
-import { FullNamePipe } from '../../../../pipes/full-name.pipe';
+import { SharedModule } from '../../../../shared.module';
 
 
 @NgModule({
   declarations: [
-    UserItemComponent,
-    FullNamePipe
+    UserItemComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   providers: [],
   exports: [UserItemComponent]

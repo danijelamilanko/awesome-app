@@ -1,0 +1,44 @@
+@import '../../../assets/scss/colors';
+
+.pagination {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+        a {
+            float: left;
+            line-height: 24px;
+            text-decoration: none;
+            border: 1px solid $grey;
+            padding: 5px 10px;
+        }
+        &.active {
+            a {
+                background: $dark-dark-grey;
+                color: white;
+                border-color: $dark-dark-grey;
+            }
+
+            a:hover, span:hover  {
+                color: white;
+            }
+        }
+        &.disabled {
+            a, span {
+                cursor: not-allowed;
+            }
+        }
+        a, span {
+            border-radius: 3px;
+            color: $dark-grey;
+            width: 15px;
+            text-align: center;
+        }
+        a:hover, span:hover  {
+            color: $dark;
+        }
+    }
+    .page-item:not(.active).disabled a.page-link {
+        opacity: 0.4 !important;
+    }
+}

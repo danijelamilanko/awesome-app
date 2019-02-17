@@ -11,44 +11,75 @@ import { SearchService } from '../../../services/search.service';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit, OnDestroy {
-  public userList: User[] = [];
+  public userListFiltered: User[] = [];
   public userSelected: User | null = null;
-  public query = '';
+  public totalPages = 1;
+  public pageCurrent = 1;
 
-  private userSelectedSubscription: Subscription;
-  private searchTermChangeSubscription: Subscription;
+  private _rowsOnPage = 20;
+  private _userListTotal: User[] = [];
+  private _query = '';
+  private _userSelectedSubscription: Subscription;
+  private _searchTermChangeSubscription: Subscription;
 
   constructor(private backendService: BackendService,
               private applicationService: ApplicationService,
               private searchService: SearchService) { }
 
+  public page(page: number) {
+    this.filter(this._query, page);
+  }
+
+  private filter(query: string, page: number) {
+    this._query = query;
+    if (query) {
+      this.userListFiltered = this._userListTotal.filter(user => (user.name.first.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
+        user.name.last.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
+        user.email.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
+        user.dob.age.toString().toLowerCase().indexOf(query.toLowerCase()) > -1 ||
+        user.phone.toLowerCase().indexOf(query.toLowerCase()) > -1));
+    } else {
+      this.userListFiltered = this._userListTotal;
+    }
+    this.calculatePagination(page);
+  }
+
+  private calculatePagination(page: number) {
+    this.pageCurrent = page;
+    const from = (this.pageCurrent - 1) * this._rowsOnPage;
+    this.totalPages = Math.ceil(this.userListFiltered.length / this._rowsOnPage);
+    this.userListFiltered = this.userListFiltered.slice(from, this._rowsOnPage * this.pageCurrent);
+  }
+
   ngOnInit() {
-    this.userSelectedSubscription = this.applicationService.userSelectedEvent.subscribe(
+    this._userSelectedSubscription = this.applicationService.userSelectedEvent.subscribe(
       (user: User) => {
         this.userSelected = user;
       },
       error => {
       }
     );
-    this.searchTermChangeSubscription = this.searchService.searchTriggeredEvent.subscribe(
-      (text: any) => {
-        this.query = text;
+    this._searchTermChangeSubscription = this.searchService.searchTriggeredEvent.subscribe(
+      (query: any) => {
+        this.filter(query, 1);
       },
       error => {
       }
     );
 
     this.backendService.getUsers().subscribe((response: any) => {
-      this.userList = response.results;
+      this._userListTotal = response.results;
+      this.userListFiltered = this._userListTotal;
+      this.calculatePagination(1);
     });
   }
 
   ngOnDestroy() {
-    if (this.userSelectedSubscription) {
-      this.userSelectedSubscription.unsubscribe();
+    if (this._userSelectedSubscription) {
+      this._userSelectedSubscription.unsubscribe();
     }
-    if (this.searchTermChangeSubscription) {
-      this.searchTermChangeSubscription.unsubscribe();
+    if (this._searchTermChangeSubscription) {
+      this._searchTermChangeSubscription.unsubscribe();
     }
   }
 }

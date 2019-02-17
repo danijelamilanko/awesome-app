@@ -10,6 +10,6 @@ export class BackendService {
   }
 
   getUsers(filter = ''): Observable<object> {
-    return this.httpClient.get('https://randomuser.me/api/?results=10');
+    return this.httpClient.get('https://randomuser.me/api/?results=500');
   }
 }

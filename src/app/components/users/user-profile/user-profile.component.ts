@@ -10,12 +10,13 @@ import { User } from '../../../models/user/user';
 })
 export class UserProfileComponent implements OnInit, OnDestroy {
   public userSelected: User | null = null;
-  private userSelectedSubscription: Subscription;
+
+  private _userSelectedSubscription: Subscription;
 
   constructor(private applicationService: ApplicationService) { }
 
   ngOnInit() {
-    this.userSelectedSubscription = this.applicationService.userSelectedEvent.subscribe(
+    this._userSelectedSubscription = this.applicationService.userSelectedEvent.subscribe(
       (user: User) => {
         this.userSelected = user;
       },
@@ -25,8 +26,8 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.userSelectedSubscription) {
-      this.userSelectedSubscription.unsubscribe();
+    if (this._userSelectedSubscription) {
+      this._userSelectedSubscription.unsubscribe();
     }
   }
 }

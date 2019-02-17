@@ -1,7 +1,11 @@
 <div class="user-list">
-    <div *ngFor="let userItem of (userList | Filter: query)">
+    <div *ngFor="let userItem of userListFiltered">
         <div [className]="(userSelected === userItem) ? 'selected' : ''">
             <app-user-item [userItem]="userItem"></app-user-item>
         </div>
     </div>
 </div>
+<app-pagination *ngIf="userListFiltered"
+                [pageCurrent]="pageCurrent"
+                [pageTotal]="totalPages"
+                (page)="page($event)">></app-pagination>

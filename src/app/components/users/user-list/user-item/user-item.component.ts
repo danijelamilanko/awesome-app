@@ -12,7 +12,7 @@ export class UserItemComponent implements OnInit {
 
   constructor(public applicationService: ApplicationService) { }
 
-  userSelected() {
+  public userSelected() {
     this.applicationService.selectUser(this.userItem);
   }
 

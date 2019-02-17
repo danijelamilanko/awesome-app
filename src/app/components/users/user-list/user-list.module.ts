@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { UserListComponent } from './user-list.component';
 import { UserItemModule } from './user-item/user-item.module';
 import { CommonModule } from '@angular/common';
-import { FilterPipe } from '../../../pipes/filter.pipe';
+import { PaginationModule } from '../../pagination/pagination.module';
 
 
 @NgModule({
   declarations: [
-    UserListComponent,
-    FilterPipe
+    UserListComponent
   ],
   imports: [
     CommonModule,
-    UserItemModule
+    UserItemModule,
+    PaginationModule
   ],
   providers: [],
   exports: [UserListComponent]

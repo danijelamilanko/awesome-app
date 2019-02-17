@@ -8,6 +8,10 @@
         <img class="large" src="{{userSelected.picture.large}}" alt="">
     </div>
     <div class="info">
+        <span class="small-screen title">Name</span>
+        <span class="small-screen">{{userSelected.name | FullName}}</span>
+        <span class="small-screen title">Age</span>
+        <span class="small-screen">{{userSelected.dob.age}}</span>
         <span class="title">Email Address</span>
         <span>{{userSelected.email}}</span>
         <span class="title">Phone Number</span>

@@ -10,6 +10,7 @@ import { SharedModule } from '../../../shared.module';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     SharedModule
   ],
   providers: [],

@@ -1,10 +1,9 @@
 .search-header {
-    margin-bottom: 20px;
-    .search-input, .search-label {
-        display: inline-block;
-    }
-
+    margin: 0 20px 20px 0;
     .search-input {
-        margin: 0 20px 20px 0;
+        width: 100%;
+        input {
+            width: 180px;
+        }
     }
 }

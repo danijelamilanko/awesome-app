@@ -1,7 +1,62 @@
 @import 'assets/scss/colors';
 @import 'assets/scss/custom';
 
-body {
-    margin: 40px;
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    body {
+        margin: 10px;
+    }
+    .medium-wrapper {
+        display: none;
+    }
+    .small-screen {
+        display: block;
+    }
+    .users {
+        grid-template-columns: 50% 50%;
+    }
+    span {
+        font-size: 12px;
+    }
 }
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    body {
+        margin: 10px;
+    }
+    .medium-wrapper {
+        display: none;
+    }
+    .small-screen {
+        display: block;
+    }
+    .users {
+        grid-template-columns: 50% 50%;
+    }
+    span {
+        font-size: 14px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    body {
+        margin: 40px;
+    }
+    .medium-wrapper {
+        display: block;
+    }
+    .small-screen {
+        display: none !important;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

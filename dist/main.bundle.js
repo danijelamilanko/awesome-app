@@ -758,7 +758,7 @@ var UserSearchComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
  */ 
-var styles = [".search-header[_ngcontent-%COMP%] {\n  margin-bottom: 20px; }\n  .search-header[_ngcontent-%COMP%]   .search-input[_ngcontent-%COMP%], .search-header[_ngcontent-%COMP%]   .search-label[_ngcontent-%COMP%] {\n    display: inline-block; }\n  .search-header[_ngcontent-%COMP%]   .search-input[_ngcontent-%COMP%] {\n    margin-right: 20px; }"];
+var styles = [".search-header[_ngcontent-%COMP%] {\n  margin-bottom: 20px; }\n  .search-header[_ngcontent-%COMP%]   .search-input[_ngcontent-%COMP%], .search-header[_ngcontent-%COMP%]   .search-label[_ngcontent-%COMP%] {\n    display: inline-block; }\n  .search-header[_ngcontent-%COMP%]   .search-input[_ngcontent-%COMP%] {\n    margin: 0 20px 20px 0; }"];
 
 
 

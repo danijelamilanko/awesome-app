@@ -36,6 +36,9 @@
     }
     span {
         display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         &.title {
             margin-top: 30px;
             opacity: 0.6;

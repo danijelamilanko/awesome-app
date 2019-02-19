@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiRandomUser: 'https://randomuser.me',
+  apiRandomUser: 'https://randomuser.me/'
 };
